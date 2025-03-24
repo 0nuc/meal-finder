@@ -11,7 +11,11 @@ Expo
 
 TypeScript
 
-Firebase (Authentification, Database, Storage)
+Node.js (pour les API et la gestion des données)
+
+MySQL (Base de données)
+
+Firebase (Authentification, Storage)
 
 API de nutrition (ex: Spoonacular, Edamam)
 
