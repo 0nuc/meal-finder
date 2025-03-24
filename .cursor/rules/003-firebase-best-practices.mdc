@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+name: firebase-best-practices.mdc
+description: Best practices for using Firebase in mobile applications
+globs: **/*.{ts,tsx,js,jsx}
+---
+
+- Use Firebase Authentication for secure user management
+- Implement Firestore for real-time data synchronization
+- Utilize Firebase Storage for efficient file handling
+- Implement proper error handling and offline persistence
