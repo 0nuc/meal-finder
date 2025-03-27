@@ -9,13 +9,11 @@ React Native
 
 Expo
 
-TypeScript
-
 Node.js (pour les API et la gestion des données)
 
-MySQL (Base de données)
+PotgresQL (Base de données)
 
-Firebase (Authentification, Storage)
+ORM: Prisma
 
 API de nutrition (ex: Spoonacular, Edamam)
 
@@ -45,3 +43,21 @@ Historique de recherche : Liste des recherches récentes pour une navigation plu
 
 Mode hors ligne : Possibilité d'enregistrer des recettes pour les consulter sans connexion Internet.
 
+
+
+
+
+
+Process : 
+
+# Télécharge et installe PostgreSQL depuis :
+https://www.postgresql.org/download/windows/
+
+
+npm install prisma --save-dev
+npm install @prisma/client
+
+
+npx prisma init
+
+npx prisma db push
