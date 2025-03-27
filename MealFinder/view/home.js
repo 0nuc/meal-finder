@@ -2,7 +2,7 @@ import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Login, Sign } from '../components/LoginSignButton';
 
 
-export default function FirstScreen({navigation}) {
+export default function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Image 
@@ -12,8 +12,8 @@ export default function FirstScreen({navigation}) {
       <SafeAreaView style={styles.header}>
         <Text style={styles.title}>Commencez à suivre ce qui vous intéresse</Text>
         <Text style={styles.subtitle}>Créez un compte pour enregistrer les recettes qui vous donnent envie</Text>
-        <Login/>
-        <Sign/>
+        <Login  onPress={() => navigation.navigate('LoginPage')}/>
+        <Sign  onPress={() => navigation.navigate('SignPage')}/>
           {/* <TextInput
             placeholder='Email'
             style={styles.input}

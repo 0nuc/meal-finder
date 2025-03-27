@@ -1,21 +1,52 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export function Login(){
+export function Login({onPress}){
   return(
-    <TouchableOpacity style={styles.buttonStyle}>
+    <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
       <Text style={styles.buttonText}>Connectez-vous</Text>
     </TouchableOpacity>
   )
 }
 
-export function Sign(){
+export function Sign({onPress}){
   return(
-    <TouchableOpacity style={styles.buttonStyleSign}>
+    <TouchableOpacity style={styles.buttonStyleSign} onPress={onPress}>
       <Text style={styles.buttonText}>Crée un compte</Text>
     </TouchableOpacity>
   )
 }
+export function Connect(){
+  return(
+    <TouchableOpacity style={styles.buttonStyleConnect}>
+     <Text style={styles.buttonTextConnect}>Connexion</Text>
+    </TouchableOpacity>
+  )
+}
+export function Creat(){
+  return(
+    <TouchableOpacity style={styles.buttonStyleConnect}>
+     <Text style={styles.buttonTextConnect}>Crée vous un compte via Email</Text>
+    </TouchableOpacity>
+  )
+}
+export function PasswordReset(){
+  return(
+    <TouchableOpacity>
+      <Text style={styles.password}>Mot de passe oublier ?</Text>
+    </TouchableOpacity>
+  )
+}
 
+export function Back(){
+  const navigation = useNavigation();
+
+  return(
+    <TouchableOpacity style={styles.buttonStyleRetour} onPress={() => navigation.goBack()}>
+      <Text style={styles.buttonTextRetour}>Retour</Text>
+    </TouchableOpacity>
+  )
+}
 const styles = StyleSheet.create({
   buttonStyle:{
     alignItems:'center',
@@ -42,5 +73,36 @@ const styles = StyleSheet.create({
     padding:20,
     borderRadius:50,
   },
+  buttonStyleConnect:{
+    width: '90%',
+    padding: 20,
+    borderRadius: 50,
+    marginVertical: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor:'#FFCC00',
+  },
 
+  buttonTextConnect:{
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  password:{
+    color:'#FFCC00',
+    marginLeft:10,
+    marginTop:5,
+    opacity:0.7
+  },
+  buttonStyleRetour:{
+    padding:20,
+    marginTop:-10
+   
+  },
+  buttonTextRetour:{
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '600',
+  },
 });
