@@ -1,35 +1,31 @@
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String?
-  favorites Recipe[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+  password      String
+  favorites     Recipe[]  @relation("UserFavorites")
 }
 
 model Recipe {
-  id          Int      @id @default(autoincrement())
-  title       String
-  ingredients String[]
-  instructions String
-  calories    Int
-  protein     Float
-  carbs       Float
-  fat         Float
-  imageUrl    String?
-  users       User[]   // Pour les favoris
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id            String    @id @default(uuid())
+  title         String
+  description   String
+  ingredients   String[]
+  instructions  String[]
+  macros        Json      // Pour stocker protéines, glucides, lipides
+  calories      Int
+  imageUrl      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  favoritedBy   User[]    @relation("UserFavorites")
 }

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "seed": "node prisma/seed.js",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -14,6 +15,7 @@
     "@react-native-google-signin/google-signin": "^13.2.0",
     "@react-navigation/native": "^7.0.18",
     "@react-navigation/stack": "^7.2.2",
+    "@supabase/supabase-js": "^2.49.4",
     "expo": "~52.0.40",
     "expo-auth-session": "^6.0.3",
     "expo-random": "^14.0.1",
@@ -26,6 +28,9 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "prisma": "^6.5.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   },
   "private": true
 }
