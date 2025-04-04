@@ -17,11 +17,10 @@ export function Sign({onPress}){
   )
 }
 // Dans LoginSignButton.js
-export const Connect = ({ onPress, disabled }) => (
+export const Connect = ({ onPress}) => (
   <TouchableOpacity 
-    style={[styles.buttonStyleConnect, disabled && styles.buttonDisabled]} 
+    style={[styles.buttonStyleConnect]} 
     onPress={onPress}
-    disabled={disabled}
   >
     <Text style={styles.buttonText}>Se connecter</Text>
   </TouchableOpacity>

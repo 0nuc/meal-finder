@@ -9,9 +9,9 @@ React Native
 
 Expo
 
-Node.js (pour les API et la gestion des données)
+Express ( API)
 
-PotgresQL (Base de données)
+SupaBase
 
 ORM: Prisma
 
