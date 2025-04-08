@@ -3,6 +3,8 @@ import { Back, Creat } from '../components/LoginSignButton';
 import { Apple, Google } from '../components/SocialAuth';
 
 export function SignPage(){
+
+  
   return(
   <View style={styles.container}>
     <View style={styles.header}>

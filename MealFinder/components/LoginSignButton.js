@@ -17,11 +17,8 @@ export function Sign({onPress}){
   )
 }
 // Dans LoginSignButton.js
-export const Connect = ({ onPress}) => (
-  <TouchableOpacity 
-    style={[styles.buttonStyleConnect]} 
-    onPress={onPress}
-  >
+export const Connect = ({ onPress }) => (
+  <TouchableOpacity style={styles.buttonStyleConnect} onPress={onPress}>
     <Text style={styles.buttonText}>Se connecter</Text>
   </TouchableOpacity>
 );
@@ -49,6 +46,7 @@ export function Back(){
     </TouchableOpacity>
   )
 }
+
 const styles = StyleSheet.create({
   buttonStyle:{
     alignItems:'center',
@@ -107,4 +105,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
   },
+  profilButton:{
+    backgroundColor:'#FFCC00'},
+    imgStyle:{
+      position:'absolute',
+      width:'100%',
+      top:0
+    }
+    
 });

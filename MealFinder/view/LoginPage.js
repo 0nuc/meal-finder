@@ -1,9 +1,25 @@
-import React from 'react'; // Correction de userState en useState
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Back, Connect, PasswordReset } from '../components/LoginSignButton';
 import { Apple, Google } from '../components/SocialAuth';
+import { authService } from '../lib/auth';
 
 export function LoginPage({ navigation }){
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    const { data, error } = await authService.signIn(email, password);
+
+    if (error) {
+      Alert.alert('Erreur', error);
+      return;
+    }
+
+    // Si connexion réussie
+    Alert.alert('Succès', 'Connexion réussie!');
+    navigation.navigate('Main');
+  };
 
   return(
     <View style={styles.container}>
@@ -24,45 +40,38 @@ export function LoginPage({ navigation }){
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}     
+            value={email}
+            onChangeText={setEmail}
           />
           <Text style={styles.inputLabel}>Votre mot de passe</Text>
           <TextInput
             style={styles.input}
-            placeholder="min. 8 caractères"
-         
+            placeholder="min. 8 caractères"         
             secureTextEntry={true}
             autoCapitalize="none"
             autoCorrect={false} 
+            value={password}
+            onChangeText={setPassword}
           />
           <PasswordReset onPress={() => navigation.navigate('ResetPassword')} />
         </View>
 
-       
-          <Connect/>
-       
+        <Connect onPress={handleLogin}/>
 
         <Text style={styles.subtitle}>ou</Text>
         
-        <Google 
-        />
-        
-        <Apple 
-        />
-        
+        <Google/>
+        <Apple/>
         <Back onPress={() => navigation.goBack()} />
       </View>
     </View>
   );
 }
 
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1E1E1E',   
-    
   },
   header:{
     width:'100%',
@@ -70,24 +79,18 @@ const styles = StyleSheet.create({
     marginTop:'30%',
     alignItems:'center',
     justifyContent:'center',
-
-
   },
   body:{
     height:'100%',
     width:'100%',
-    // backgroundColor:'#FFF',
     alignItems:'center',
     justifyContent:'flex-start',
-    
   },
   inputContainer:{
     padding:20,
     justifyContent:'center',
     width:'100%',
-
   },
-
   title:{
     padding:10,
     color:'#fff',
@@ -109,7 +112,6 @@ const styles = StyleSheet.create({
     textAlign:"center",
     fontWeight:'100',
   },
-
   input:{
     marginTop:10,
     borderWidth: 2,
@@ -129,13 +131,12 @@ const styles = StyleSheet.create({
     width:'100%',
     top:0
   },
- inputLabel:{
-  marginTop:10,
-  marginLeft:10,
-  color:'#fff',
-  fontSize:16,
-  fontWeight:'400',
-  marginBottom:5,
- }
-
+  inputLabel:{
+    marginTop:10,
+    marginLeft:10,
+    color:'#fff',
+    fontSize:16,
+    fontWeight:'400',
+    marginBottom:5,
+  }
 });
