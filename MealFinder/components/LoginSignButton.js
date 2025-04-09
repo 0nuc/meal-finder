@@ -22,12 +22,12 @@ export const Connect = ({ onPress }) => (
     <Text style={styles.buttonText}>Se connecter</Text>
   </TouchableOpacity>
 );
-export function Creat(){
-  return(
-    <TouchableOpacity style={styles.buttonStyleConnect}>
-     <Text style={styles.buttonTextConnect}>Crée vous un compte via Email</Text>
+export function Creat({ onPress }) {
+  return (
+    <TouchableOpacity style={styles.buttonStyleConnect} onPress={onPress}>
+      <Text style={styles.buttonTextConnect}>Créer un compte</Text>
     </TouchableOpacity>
-  )
+  );
 }
 export function PasswordReset(){
   return(

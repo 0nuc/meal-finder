@@ -17,7 +17,7 @@ export default function FirstScreen({navigation}) {
         <Text style={styles.titlePartTwo}>Finder</Text>
       </Text>
       <Text style={styles.subtitle}>Trouvé des repas sain pour atteindre votre objéctif</Text>
-      <ButtonNext onPress={() => navigation.navigate('Home')} />
+      <ButtonNext onPress={() => navigation.navigate('SignPage')} />
       <StatusBar style="auto" />
     </View>
   );
